@@ -29,7 +29,13 @@ public class UpAndDown {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         WebDriverWait wait;
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@aria-label='Consent']"))).click();
+        try {
+            WebElement consentButton =  wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@aria-label='Consent']")));
+            consentButton.click();
+
+        }catch (Exception e){
+            System.out.println("Consent Button not displayed");
+        }
 
         // Verifies homepage loaded correctly
         String pageTitle = driver.getTitle();
@@ -61,8 +67,13 @@ public class UpAndDown {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         WebDriverWait wait;
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@aria-label='Consent']"))).click();
+        try {
+            WebElement consentButton =  wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@aria-label='Consent']")));
+            consentButton.click();
 
+        }catch (Exception e){
+            System.out.println("Consent Button not displayed");
+        }
 
         // Verifies homepage loaded correctly
         String pageTitle = driver.getTitle();
